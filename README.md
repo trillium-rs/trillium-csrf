@@ -14,12 +14,23 @@
 [codecov-badge]: https://codecov.io/gh/trillium-rs/trillium-csrf/graph/badge.svg
 [codecov]: https://codecov.io/gh/trillium-rs/trillium-csrf
 
-Cross-site request forgery (CSRF) protection middleware for the [trillium.rs](https://trillium.rs) web framework.
+Cross-site request forgery (CSRF) protection for the [trillium.rs](https://trillium.rs) web framework.
+
+This handler rejects state-changing cross-origin requests using metadata that
+browsers attach to every request (`Sec-Fetch-Site`, with an `Origin` fallback).
+It needs no tokens, no cookies, and no configuration to protect an app whose
+frontend and api share an origin. See [the docs][docs] for the exact decision
+sequence and its limits.
 
 ## Example
 
 ```rust
-// Replace with a real example once your crate has a public API.
+use trillium_csrf::csrf;
+
+let app = (
+    csrf().with_trusted_origins(["https://app.example.com"]),
+    |conn: trillium::Conn| async move { conn.ok("hello") },
+);
 ```
 
 ## Safety

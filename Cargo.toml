@@ -18,5 +18,9 @@ all-features = true
 # development = ["trillium-csrf"]
 
 [dependencies]
+log = "0.4"
+trillium = "1"
+url = "2"
 
 [dev-dependencies]
+trillium-testing = "0.10"
