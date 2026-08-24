@@ -1,0 +1,22 @@
+[package]
+name = "trillium-csrf"
+version = "0.0.0"
+edition = "2024"
+description = "CSRF protection for the trillium.rs web framework"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/trillium-rs/trillium-csrf"
+readme = "README.md"
+keywords = ["trillium", "csrf", "security", "middleware"]
+categories = ["web-programming", "web-programming::http-server"]
+
+[package.metadata.docs.rs]
+all-features = true
+
+# If you add a self-referential dev-dependency (common, to enable features in tests),
+# cargo-udeps flags it as unused. Uncomment and name the crate to silence it:
+# [package.metadata.cargo-udeps.ignore]
+# development = ["trillium-csrf"]
+
+[dependencies]
+
+[dev-dependencies]
